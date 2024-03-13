@@ -1,0 +1,13 @@
+CREATE TABLE orders (
+                        id SERIAL PRIMARY KEY,
+                        customer_name VARCHAR(100),
+                        ordered_at TIMESTAMP
+);
+
+CREATE TABLE items (
+                       id SERIAL PRIMARY KEY,
+                       item_code VARCHAR(50) UNIQUE,
+                       description TEXT,
+                       quantity INTEGER,
+                       order_id INTEGER REFERENCES orders(id)
+);
